@@ -77,6 +77,13 @@ bookSchema.static(
   }
 );
 
+bookSchema.pre("save", function (next) {
+  if (this.copies === 0) {
+    this.available = false;
+  }
+  next();
+});
+
 const Book = model<IBook, BookModel>("Book", bookSchema);
 
 export { Book };
