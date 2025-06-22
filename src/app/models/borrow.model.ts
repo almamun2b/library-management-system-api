@@ -31,7 +31,7 @@ const borrowSchema = new Schema(
 const Borrow = model<IBorrow>("Borrow", borrowSchema);
 
 borrowSchema.post("save", function (doc, next) {
-  console.log("User saved successfully", doc);
+  console.log("saved successfully", doc);
   next();
 });
 
